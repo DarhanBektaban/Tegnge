@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="kk-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tegnge</title>
+<meta name="description" content="Tegnge – tegndiktign uoilshemi. Suoiz maghynasy, qundylyghy zhaine kuindelikti tegngerim.">
+<meta name="theme-color" content="#E4E7E9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%231A2327'/%3E%3Cpath d='M8 7.5h16v3.4H8zM8 13.6h16V17H8zM14.3 17h3.4v8h-3.4z' fill='%23D2AE4F'/%3E%3C/svg%3E">
+<style>
+  /* Eki metall: aq (nikel) bet, sary (zhez) tegndik belgisi, qara sija. */
+  :root {
+    --nickel: #E4E7E9;
+    --nickel-hi: #F3F5F6;
+    --rule: #C1C8CD;
+    --ink: #1A2327;
+    --slate: #55626A;
+    --brass: #9C7A22;
+    --brass-ink: #7A5C0E;
+    --brass-lit: #D2AE4F;
+    --measure: 34rem;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+  body {
+    background: var(--nickel);
+    color: var(--ink);
+    font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Roboto, "Noto Sans", Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (min-width: 44rem) { body { font-size: 1.1875rem; } }
+
+  ::selection { background: var(--brass-lit); color: var(--ink); }
+
+  /* ---------- Bas bet: tegndik belgisinen tegnge tagnbasy tuuady ---------- */
+  .hero {
+    min-height: 92vh;
+    min-height: 92svh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 3rem 1.5rem 4rem;
+    background: radial-gradient(110% 70% at 50% 0%, var(--nickel-hi) 0%, var(--nickel) 70%);
+  }
+  .mark { display: block; width: min(54vw, 16rem); height: auto; }
+  .bar { fill: var(--brass); }
+  .stem { fill: var(--ink); }
+
+  h1 {
+    font-size: clamp(3.6rem, 19vw, 8.5rem);
+    font-weight: 800;
+    letter-spacing: -.035em;
+    line-height: 1;
+    margin-top: 1.75rem;
+  }
+  .motto {
+    margin-top: 1.1rem;
+    font-size: clamp(1.05rem, 4.6vw, 1.45rem);
+    font-weight: 500;
+    color: var(--slate);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .bar-a { animation: from-left .9s cubic-bezier(.2, .75, .2, 1) .15s both; }
+    .bar-b { animation: from-right .9s cubic-bezier(.2, .75, .2, 1) .15s both; }
+    .hero .stem { transform-origin: 160px 124px; animation: drop .6s cubic-bezier(.3, .7, .2, 1) 1.05s both; }
+    .hero h1 { animation: appear .7s ease-out 1.5s both; }
+    .hero .motto { animation: appear .7s ease-out 1.8s both; }
+  }
+  @keyframes from-left { from { transform: translateX(-300px); } to { transform: none; } }
+  @keyframes from-right { from { transform: translateX(300px); } to { transform: none; } }
+  @keyframes drop { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+
+  /* ---------- Buoilimder ---------- */
+  section { padding: 4.25rem 1.5rem; }
+  @media (min-width: 44rem) { section { padding: 6rem 1.5rem; } }
+
+  .wrap { max-width: var(--measure); margin: 0 auto; }
+  .wrap > * + * { margin-top: 1.15rem; }
+  .wrap > h2 + * { margin-top: 1.9rem; }
+
+  .eq-mark { display: block; width: 2rem; margin-inline: auto; }
+  .eq-mark::before, .eq-mark::after { content: ""; display: block; height: .28rem; background: var(--brass); }
+  .eq-mark::after { margin-top: .34rem; }
+
+  h2 {
+    font-size: clamp(1.9rem, 7.4vw, 2.9rem);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    line-height: 1.12;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .root { color: var(--brass-ink); }
+
+  /* Uilken tegndeuuler */
+  .sum {
+    font-size: clamp(1.5rem, 7vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -.01em;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .one {
+    font-size: clamp(3.4rem, 17vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1;
+    text-align: center;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  .one b { color: var(--brass); font-weight: 800; padding: 0 .16em; }
+
+  .say {
+    margin-top: 2.2rem;
+    font-size: clamp(1.35rem, 6vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -.01em;
+    line-height: 1.25;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  /* Eki zhaq, ortasynda tegndik belgisi */
+  .pairs { list-style: none; margin-top: 2rem; border-top: 1px solid var(--rule); }
+  .pairs li {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    column-gap: .9rem;
+    align-items: baseline;
+    padding: .7rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: clamp(1.25rem, 5.6vw, 1.75rem);
+    font-weight: 700;
+  }
+  .pairs span:first-child { text-align: right; }
+  .pairs b { color: var(--brass-ink); font-weight: 800; }
+
+  /* Suoiz = maghyna */
+  .ledger {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    margin-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .ledger div { display: contents; }
+  .ledger dt, .ledger dd { padding-top: .75rem; padding-bottom: .75rem; border-bottom: 1px solid var(--rule); }
+  .ledger dt { font-weight: 700; padding-right: .9rem; }
+  .ledger dd { padding-left: 1.3em; text-indent: -1.3em; }
+  .ledger dd::before {
+    content: "=";
+    display: inline-block;
+    width: 1.3em;
+    text-indent: 0;
+    color: var(--brass-ink);
+    font-weight: 800;
+  }
+
+  /* Qysqasha tarjh */
+  .times { list-style: none; margin-top: 2rem; border-top: 1px solid var(--rule); }
+  .times li {
+    display: grid;
+    grid-template-columns: 4.6em minmax(0, 1fr);
+    column-gap: 1rem;
+    padding: .9rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .times .when { font-weight: 800; font-variant-numeric: lining-nums tabular-nums; }
+  .t { height: .8em; width: auto; fill: currentColor; vertical-align: -.03em; }
+
+  /* ---------- Tjynnygn qyry men ekinshi beti ---------- */
+  .edge {
+    height: .7rem;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 6px);
+  }
+  .reverse { background: var(--ink); color: var(--nickel); }
+  .reverse .eq-mark::before, .reverse .eq-mark::after { background: var(--brass-lit); }
+  .lines {
+    list-style: none;
+    font-size: clamp(1.3rem, 5.8vw, 1.9rem);
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .lines li:last-child { margin-top: .7rem; color: var(--brass-lit); font-weight: 800; }
+  .place { text-align: center; color: #B9C1C6; text-wrap: balance; }
+
+  footer {
+    background: var(--ink);
+    color: #9AA5AB;
+    text-align: center;
+    font-size: .9rem;
+    padding: 0 1.5rem 3rem;
+  }
+  footer div { max-width: var(--measure); margin: 0 auto; padding-top: 1.75rem; border-top: 1px solid #2F3A40; }
+  footer p + p { margin-top: .2rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="mark" viewBox="0 0 320 300" role="img" aria-label="Tegnge tagnbasy: eki tegn syzyq zhaine bir tik syzyq">
+    <rect class="bar bar-a" x="40" y="24" width="240" height="36"/>
+    <rect class="bar bar-b" x="40" y="88" width="240" height="36"/>
+    <rect class="stem" x="142" y="124" width="36" height="164"/>
+  </svg>
+  <h1>Tegnge</h1>
+  <p class="motto">Tegn. Tegnge. Bir ese bir esege.</p>
+</header>
+
+<main>
+
+  <section id="maghyna">
+    <div class="wrap">
+      <span class="eq-mark" aria-hidden="true"></span>
+      <h2>Tegngenign ishinde – tegn</h2>
+      <p class="sum"><span class="root">tegn</span> + ge = <span class="root">tegn</span>ge</p>
+      <p>«Tegnge» suoizinign ishinde «tegn» tur. Tegn – eki zhaqtygn birdej boluuy: artyq ta emes, kem de emes.</p>
+      <p>Bir nairse ekinshi nairsege ajyrbastalghanda, ekeuuinign arasyna uoilshem kerek. Tegnge – sol uoilshem: ol eki zhaqty tegnestiredi.</p>
+      <p>Sondyqtan tegngenign aty – onygn atqaratyn isi.</p>
+      <p>Zhogharydaghy tagnbagha qaragnyz: basynda eki tegn syzyq tur. Tegndik belgisi tagnbanygn uoizinde.</p>
+    </div>
+  </section>
+
+  <section id="tegndik">
+    <div class="wrap">
+      <span class="eq-mark" aria-hidden="true"></span>
+      <h2>Bir ese bir esege</h2>
+      <p class="one">1 <b>=</b> 1</p>
+      <p>«Ese» – air adamnygn tjesili uilesi. Bir ese bir esege tegn bolsa, eshkimnign esesi ketpejdi.</p>
+      <p>Bul – egn qarapajym airi egn aidil uoilshem: bergenign alghanygna tegn.</p>
+      <ul class="pairs">
+        <li><span>bergen</span><b>=</b><span>alghan</span></li>
+        <li><span>egnbek</span><b>=</b><span>aqy</span></li>
+        <li><span>suoiz</span><b>=</b><span>is</span></li>
+        <li><span>kiris</span><b>=</b><span>shyghys</span></li>
+      </ul>
+      <p>Tegnge osyny eske salady: air ajyrbasta eki zhaq tegn tuisuui kerek.</p>
+    </div>
+  </section>
+
+  <section id="tuibir">
+    <div class="wrap">
+      <span class="eq-mark" aria-hidden="true"></span>
+      <h2>Bir tuibirden</h2>
+      <p>«Tegn» tuibirinen kuoip suoiz taraghan. Bairinign maghynasy bir zherden shyghady: eki zhaqtygn tegn boluuy.</p>
+      <dl class="ledger">
+        <div><dt><span class="root">tegn</span></dt><dd>birdej, artyq-kemi zhoq</dd></div>
+        <div><dt><span class="root">tegn</span>dik</dt><dd>eshkimnign kem bolmauuy</dd></div>
+        <div><dt><span class="root">tegn</span>geruu</dt><dd>eki zhaqty birdej etuu</dd></div>
+        <div><dt><span class="root">tegn</span>gerim</dt><dd>eki zhaqtygn tegn turghan qalpy</dd></div>
+        <div><dt><span class="root">tegn</span>deuu</dt><dd>eki zhaghy tegn esep</dd></div>
+        <div><dt>tepe-<span class="root">tegn</span>dik</dt><dd>tarazynygn tynysh turuuy</dd></div>
+        <div><dt><span class="root">tegn</span>dessiz</dt><dd>tegni zhoq, zhalghyz</dd></div>
+        <div><dt><span class="root">tegn</span>ge</dt><dd>tegndiktign uoilshemi</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="tegngerim">
+    <div class="wrap">
+      <span class="eq-mark" aria-hidden="true"></span>
+      <h2>Kuindelikti tegngerim</h2>
+      <p>Tegnge kuin sajyn qoldan qolgha uoitedi. Nan alghanda, zhol zhuirgende, egnbekaqy alghanda – air zholy ol eki zhaqty tegngerip turady.</p>
+      <p>Biz ony bajqamajmyz, sebebi tegngerim tynysh bolady. Tarazy tegn turghanda, ol uinsiz.</p>
+      <p>Kuindelikti uoimir de solaj: egnbek pen demalys, beruu men aluu, suoiz ben is. Bairi tegngerim izdejdi.</p>
+      <p class="say">Tegnge – kuindelikti tegngerimnign uoizi.</p>
+    </div>
+  </section>
+
+  <section id="qundylyq">
+    <div class="wrap">
+      <span class="eq-mark" aria-hidden="true"></span>
+      <h2>Quny nede?</h2>
+      <p>Tegngenign quny qaghazda da, qojnynda da emes. Onygn quny – senimde.</p>
+      <p>Bir adam bergen tegngeni ekinshi adam dail sol uoilshemmen qabyldajdy. Osy kelisim bar zherde tegnge – tegnge.</p>
+      <dl class="ledger">
+        <div><dt>Uoilshem</dt><dd>air nairsenign qunyn ajtatyn ortaq til</dd></div>
+        <div><dt>Senim</dt><dd>bergen qol men alghan qoldygn kelisimi</dd></div>
+        <div><dt>Aidildik</dt><dd>artyq ta emes, kem de emes</dd></div>
+        <div><dt>Egnbek</dt><dd>air tegngenign artyndaghy magndaj ter</dd></div>
+      </dl>
+      <p>Sondyqtan tegngeni qadirleuu – egnbekti, senimdi zhaine tegndikti qadirleuu.</p>
+    </div>
+  </section>
+
+  <section id="tarjh">
+    <div class="wrap">
+      <span class="eq-mark" aria-hidden="true"></span>
+      <h2>Qysqasha tarjhy</h2>
+      <ol class="times">
+        <li>
+          <span class="when">Ertede</span>
+          <p>«Tegnge» – tuirki halyqtarynda erteden bar suoiz. Orta ghasyrlarda aqsha osylaj atalghan. Suoizdikter ony eski tuirki tilindegi «tegn» (birdej, tegngerilgen) suoizimen bajlanystyrady.</p>
+        </li>
+        <li>
+          <span class="when">1993</span>
+          <p>15 qarashada tegnge Qazaqstannygn ulttyq aqshasy bolyp ajnalymgha shyqty. Sodan beri bul kuin – ulttyq aqsha kuini.</p>
+        </li>
+        <li>
+          <span class="when">2007</span>
+          <p><svg class="t" viewBox="0 0 20 22" role="img" aria-label="Tegnge"><path d="M1 1h18v3.2H1zM1 7h18v3.2H1zM8.4 10.2h3.2V21H8.4z"/></svg> tagnbasy bekitildi.</p>
+        </li>
+        <li>
+          <span class="when">Buigin</span>
+          <p>1 tegnge = 100 tjyn.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="edge" aria-hidden="true"></div>
+
+  <section class="reverse" id="maigngilik">
+    <div class="wrap">
+      <span class="eq-mark" aria-hidden="true"></span>
+      <h2>Maigngilik orny</h2>
+      <ul class="lines">
+        <li>Qojyny tozady.</li>
+        <li>Qaghaz auuysady.</li>
+        <li>San uoizgeredi.</li>
+        <li>Al «tegn» qalady.</li>
+      </ul>
+      <p class="place">Tegngenign maigngilik orny – eki qoldygn arasynda: bergen qol men alghan qoldygn.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <p>tegnge.com</p>
+    <p>Darhan Bektaban ailippesimen zhazylghan.</p>
+    <p>Zheke zhoba. Resmj mekeme ghalamtor bettegi emes.</p>
+  </div>
+</footer>
+
+</body>
+</html>
